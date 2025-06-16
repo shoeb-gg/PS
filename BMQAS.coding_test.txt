@@ -1,0 +1,46 @@
+Employee
+id   name 
+1   shoeb
+2   tanim
+3   wahid
+4  avee
+
+Dep
+id name
+1 hr
+2 it
+
+EmployeDept
+id empid depid
+1  1   1
+1  2   2
+3  3   1
+4  3   2
+5  4   2 
+
+
+
+Salary
+id  empid  salary
+1   1      5000
+2   2      4000
+3   3      4000
+5   4      4500
+
+
+Q: what is the expensditure per department
+
+
+SELECT 
+  Dep.name,            
+  SUM(Salary.salary)    
+FROM 
+  EmployeeDept          
+JOIN 
+  Dep 
+  ON EmployeeDept.depid = Dep.id    
+JOIN 
+  Salary 
+  ON EmployeeDept.empid = Salary.empid  
+GROUP BY 
+  Dep.name;  
